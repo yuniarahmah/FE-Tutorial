@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Change Animation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: white; /* Initial background color */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .animation {
+            font-size: 2em;
+            display: inline-block;
+            background: linear-gradient(to right, black, pink); /* Initial background gradient */
+            color: transparent; /* Initial text color */
+            background-clip: text;
+            animation: colorChange 3s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0%, 100% {
+                background-position: 0% 0;
+            }
+            50% {
+                background-position: 100% 0;
+            }
+        }
+
+        button {
+            background: pink;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="animation" id="colorText">Color Change</div>
+    <button onclick="toggleAnimation()">Toggle Animation</button>
+
+    <script>
+        function toggleAnimation() {
+            const colorText = document.getElementById('colorText');
+            colorText.classList.toggle('animation');
+        }
+    </script>
+</body>
+</html>
